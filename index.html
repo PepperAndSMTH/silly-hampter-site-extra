@@ -1,91 +1,10 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Countdown c2s1 - POMsite</title>
-    <style>
-        body {
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-            display: grid;
-            place-items: center;
-            height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg,#ffffff,#ffffff);
-            color: #000000;
-        }
-        .clock {
-            text-align: center;
-            background: rgb(255, 255, 255);
-            padding: 2rem 3rem;
-            border-radius: 12px;
-            box-shadow: 0 6px 24px rgba(218, 218, 218, 0.6);
-        }
-        .time {
-            font-variant-numeric: tabular-nums;
-            font-size: 3rem;
-            letter-spacing: .02em;
-            margin: 0.25rem 0 0;
-        }
-        .label {
-            font-size: .9rem;
-            opacity: .8;
-        }
-    </style>
+    <title>Dev log!</title>
 </head>
 <body>
-    <div class="clock" role="timer" aria-live="polite">
-        <div class="label">Time remaining until Chapter 2 Season 1 drop</div>
-        <div id="time" class="time">--:--:--</div>
-    </div>
-
-    <script>
-        const el = document.getElementById('time');
-
-        function pad(n) { return String(n).padStart(2, '0'); }
-
-        // Calculate next occurrence of 19:00 CEST (CEST = UTC+2)
-        const CEST_OFFSET_MS = 2 * 60 * 60 * 1000;
-        const nowMs = Date.now();
-
-        // Determine the current date in CEST
-        const cestNow = new Date(nowMs + CEST_OFFSET_MS);
-        const year = cestNow.getUTCFullYear();
-        const month = cestNow.getUTCMonth(); // zero-based
-        const day = cestNow.getUTCDate();
-
-        // Build a UTC timestamp for 19:00 CEST by creating a UTC 19:00 and subtracting the CEST offset
-        let endTs = Date.UTC(year, month, day, 19, 0, 0) - CEST_OFFSET_MS;
-
-        // If that time already passed, use the next day
-        if (endTs <= nowMs) {
-            endTs += 24 * 60 * 60 * 1000;
-        }
-
-        function update() {
-            const now = Date.now();
-            let diff = Math.max(0, endTs - now);
-
-            const days = Math.floor(diff / 86400000);
-            diff -= days * 86400000;
-            const hours = Math.floor(diff / 3600000);
-            diff -= hours * 3600000;
-            const minutes = Math.floor(diff / 60000);
-            diff -= minutes * 60000;
-            const seconds = Math.floor(diff / 1000);
-
-            const dayPart = days ? pad(days) + ':' : '';
-            el.textContent = `${dayPart}${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
-
-            if (endTs - now <= 0) {
-                clearInterval(timer);
-                el.textContent = '00:00:00';
-                el.parentElement.querySelector('.label').textContent = 'Countdown finished';
-            }
-        }
-
-        update();
-        const timer = setInterval(update, 1000);
-    </script>
+    <p>Added Lange Ei fan clup! (dont touch it!?!)</p>
+    <p>Extremely revamped the main website</p>
 </body>
 </html>
