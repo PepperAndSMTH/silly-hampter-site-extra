@@ -1,10 +1,33 @@
 <!DOCTYPE html>
+<button id="closeBtn" style="position: absolute; top: 10px; left: 10px; z-index: 1000;">Close</button>
+<script>
+    document.getElementById('closeBtn').onclick = function() {
+        window.close();
+    };
+</script>
 <html>
 <head>
     <title>Dev log!</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center; /* centers horizontally */
+            align-items: center;     /* centers vertically */
+            height: 100vh;           /* full viewport height */
+            text-align: center;      /* center text */
+            font-family: 'Arial', sans-serif; /* change font */
+            margin: 0;               /* remove default margin */
+            background-color: #f0f0f0; /* optional: light background */
+        }
+    </style>
 </head>
 <body>
-    <p>Added Lange Ei fan clup! (dont touch it!?!)</p>
-    <p>Extremely revamped the main website</p>
+    <div>
+        <h1>Dev log - Revamp update!</h1>
+        <p>Added a toggleable menu on the right side of the screen, with 3 rectangles that link to different pages.</p>
+        <p>Added a "Freaky Sonic" placeholder link.</p>
+        <p>Added Lange Ei fan club!, Translated: Long egg fan club (dont touch it!?!)</p>
+        <p>Extremely revamped the main website</p>
+    </div>
 </body>
 </html>
